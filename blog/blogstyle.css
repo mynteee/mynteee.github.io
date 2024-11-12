@@ -1,0 +1,110 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Colors */
+:root {
+    --primary-color: #56CC99;
+    --accent-blue: #3498db;
+    --dark-grey: #2c3e50;
+    --light-grey: #ecf0f1;
+}
+
+/* Body Styling */
+body {
+    background-color: var(--light-grey);
+    color: var(--dark-grey);
+    line-height: 1.6;
+}
+
+/* Back Button Styling */
+.back-button {
+    padding: 1rem;
+}
+
+.back-button a {
+    text-decoration: none;
+    color: var(--accent-blue);
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.back-button a:hover {
+    color: var(--primary-color);
+}
+
+/* Blog Container */
+.blog-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Blog Title */
+.blog-title {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Blog Date */
+.blog-date {
+    color: var(--dark-grey);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Featured Image */
+.featured-image img {
+    width: 80%; /* Adjusted width to make it smaller */
+    max-width: 600px; /* Limit the maximum width */
+    height: auto;
+    border-radius: 8px;
+    margin: 0 auto 1.5rem auto;
+    display: block; /* Centers the image */
+}
+
+/* Blog Content */
+.blog-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    color: var(--dark-grey);
+}
+
+/* Inline Image in Content */
+.blog-image {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.blog-image img {
+    width: 80%; /* Adjusted width to make it smaller */
+    max-width: 400px; /* Limit the maximum width */
+    border-radius: 8px;
+    display: block; /* Centers the image */
+    margin: 0 auto;
+}
+
+.image-caption {
+    font-size: 0.9rem;
+    color: var(--dark-grey);
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--dark-grey);
+    color: white;
+    margin-top: 2rem;
+}
