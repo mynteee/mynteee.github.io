@@ -1,0 +1,226 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Colors */
+:root {
+    --primary-color: #56CC99;
+    --accent-blue: #3498db;
+    --dark-grey: #2c3e50;
+    --light-grey: #ecf0f1;
+}
+
+/* Body Styling */
+body {
+    background-color: var(--light-grey);
+    color: var(--dark-grey);
+}
+
+/* Header */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 0;
+}
+
+/* Header Content */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Name aligned to the left */
+.name {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Navigation Styling */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+}
+
+/* Navigation Links */
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--accent-blue);
+}
+
+/* Underline Animation */
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-blue);
+    bottom: -4px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Main Content */
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-blue);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-grey);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+/* Experience Section */
+.experience-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Creates space between experience items */
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+/* Individual Experience Item */
+.experience-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+    background-color: var(--light-grey);
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for separation */
+}
+
+.experience-text {
+    flex: 1;
+}
+
+.experience-text h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.experience-text h5 {
+    color: var(--dark-grey);
+    font-weight: normal;
+    margin-bottom: 1rem;
+}
+
+.experience-text ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+}
+
+.experience-image {
+    flex: 1;
+    text-align: center;
+}
+
+.experience-image img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Contact Links Styling */
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--dark-grey);
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.contact-link i {
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.contact-link:hover {
+    color: var(--primary-color);
+}
+
+.contact-link:hover i {
+    color: var(--primary-color);
+}
+
+/* Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.grid-item {
+    text-align: center;
+    text-decoration: none;
+    color: var(--dark-grey);
+    transition: transform 0.3s ease;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.grid-item p {
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+
+.grid-item:hover img {
+    transform: scale(1.05);
+}
+
+.grid-item:hover p {
+    color: var(--primary-color);
+}
