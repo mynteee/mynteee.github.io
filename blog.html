@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matthew Ji | Blog</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blogstyle.css">
+    <script src="blogscript.js" defer></script>
 </head>
 <body>
     <header>
@@ -24,21 +25,88 @@
     <main>
         <h2>Blog</h2>
         <p>Here is my blog where I will occasionally post!</p>
-        <div class="grid">
-            <a href="blog/yesno.html" class="grid-item">
-                <img src="blog/images/win.jpg" alt="About Image">
+
+        <div class="controls">
+            <input type="text" id="searchBar" placeholder="Search by title or tags..." oninput="filterBySearch()">
+            <button onclick="sortByDate()">Sort by Newest</button>
+            <button onclick="sortByDateInverse()">Sort by Oldest</button>
+            <button onclick="clearFilters()">Clear Filters</button>
+            <button onclick="openRandomPost()">Open Random Post</button>
+        </div>
+
+
+        <div class="grid"> <!-- YYYY-MM-DD -->
+            <a href="blog/yesno.html" class="grid-item" data-date="2024-11-11" data-tags="team,blindfold,rubik">
+                <img src="blog/images/win.jpg" alt="Yes/No TeamBLD">
                 <p>Yes/No TeamBLD</p>
             </a>
-            <a href="blog/xcdesign.html" class="grid-item">
-                <img src="blog/images/xc-01.png" alt="About Image">
+            <a href="blog/xcdesign.html" class="grid-item" data-date="2024-11-10" data-tags="design,cross-country">
+                <img src="blog/images/xc-01.png" alt="Cross Country Team Design">
                 <p>Cross Country Team Design</p>
             </a>
-
         </div>
     </main>
 
     <footer>
         <p>&copy; 2024 Matthew Ji</p>
     </footer>
+
+    <script>
+        // Sort posts by newest first (default)
+        function sortByDate() {
+            const grid = document.querySelector('.grid');
+            const items = Array.from(grid.querySelectorAll('.grid-item'));
+
+            items.sort((a, b) => {
+                const dateA = new Date(a.getAttribute('data-date'));
+                const dateB = new Date(b.getAttribute('data-date'));
+                return dateB - dateA; // Newest posts first
+            });
+
+            items.forEach(item => grid.appendChild(item));
+        }
+
+        // Sort posts by oldest first
+        function sortByDateInverse() {
+            const grid = document.querySelector('.grid');
+            const items = Array.from(grid.querySelectorAll('.grid-item'));
+
+            items.sort((a, b) => {
+                const dateA = new Date(a.getAttribute('data-date'));
+                const dateB = new Date(b.getAttribute('data-date'));
+                return dateA - dateB; // Oldest posts first
+            });
+
+            items.forEach(item => grid.appendChild(item));
+        }
+
+        // Filter posts based on search input
+        function filterBySearch() {
+            const searchInput = document.querySelector('#searchBar').value.toLowerCase();
+            const items = document.querySelectorAll('.grid-item');
+
+            items.forEach(item => {
+                const title = item.querySelector('p').textContent.toLowerCase();
+                const tags = item.getAttribute('data-tags').toLowerCase();
+                if (title.includes(searchInput) || tags.includes(searchInput)) {
+                    item.style.display = ''; // Show matching items
+                } else {
+                    item.style.display = 'none'; // Hide non-matching items
+                }
+            });
+        }
+
+        // Clear all filters (reset search and display all items)
+        function clearFilters() {
+            document.querySelector('#searchBar').value = '';
+            const items = document.querySelectorAll('.grid-item');
+            items.forEach(item => {
+                item.style.display = ''; // Show all items
+            });
+        }
+
+        // Automatically sort by newest on page load
+        document.addEventListener('DOMContentLoaded', sortByDate);
+    </script>
 </body>
 </html>
