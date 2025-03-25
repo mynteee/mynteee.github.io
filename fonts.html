@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matthew Ji | Blog</title>
-    <link rel="stylesheet" href="blogstyle.css">
-    <script src="blogscript.js" defer></script>
+    <title>Matthew Ji | Fonts</title>
+    <link rel="stylesheet" href="fonts/fontstyle.css">
+    <script src="fonts/fonts.js" defer></script>
 </head>
 <body>
     <header>
@@ -24,32 +24,24 @@
     </header>
 
     <main>
-        <h2>Blog</h2>
-        <p>Here is my blog where I will occasionally post!</p>
+        <h2>Fonts</h2>
+        <p>Here is a collection of (mostly) free fonts that I have used in projects.</p>
 
         <div class="controls">
             <input type="text" id="searchBar" placeholder="Search by title or tags..." oninput="filterBySearch()">
             <button onclick="sortByDate()">Sort by Newest</button>
             <button onclick="sortByDateInverse()">Sort by Oldest</button>
             <button onclick="clearFilters()">Clear Filters</button>
-            <button onclick="openRandomPost()">Open Random Post</button>
+            <button onclick="openRandomPost()">Open Random Font</button>
         </div>
 
 
-        <div class="grid"> <!-- YYYY-MM-DD -->
-            <a href="blog/yesno.html" class="grid-item" data-date="2024-11-11" data-tags="team,blindfold,rubik">
-                <img src="blog/images/win.jpg" alt="Yes/No TeamBLD">
-                <p>Yes/No TeamBLD</p>
-            </a>
-            <a href="blog/xcdesign.html" class="grid-item" data-date="2024-11-10" data-tags="design,cross-country">
-                <img src="blog/images/xc-01.png" alt="Cross Country Team Design">
-                <p>Cross Country Team Design</p>
-            </a>
+        <div class="grid" id="grid"> <!-- YYYY-MM-DD -->
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 Matthew Ji</p>
+        <p>&copy; 2025 Matthew Ji</p>
     </footer>
 
 </body>
