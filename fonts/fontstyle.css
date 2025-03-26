@@ -128,44 +128,70 @@ p {
 /* Blog Grid */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Fixed column size */
     gap: 1.5rem;
     margin: 2rem auto;
 }
 
+/* Grid Item */
 .grid-item {
+    position: relative; /* Allows absolute positioning of children */
     background-color: white;
     border: 1px solid var(--light-grey);
     border-radius: 8px;
     overflow: hidden;
     text-align: center;
-    text-decoration: none;
     color: var(--dark-grey);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 350px; /* Fixed height for consistent layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures text is pushed to the bottom */
 }
 
+.image2 {
+    position: absolute;
+}
+
+/* Hover effects */
 .grid-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Image Styles */
 .grid-item img {
     width: 100%;
-    height: 150px;
+    height: 300px; /* Image height reduced to make room for the text */
     object-fit: cover;
+    opacity: 0; /* Initially hide the second image */
+    transition: opacity 0.5s ease;
 }
 
-.grid-item p {
-    margin: 1rem 0;
+.grid-item img.image1 {
+    opacity: 1; /* Show the first image by default */
+}
+
+.grid-item:hover img.image1 {
+    opacity: 0; /* Hide the first image on hover */
+}
+
+.grid-item:hover img.image2 {
+    opacity: 1; /* Show the second image on hover */
+}
+
+/* Paragraph Styles */
+.image-text {
+    width: 100%;
+    padding: 0.5rem;
     font-weight: bold;
     color: var(--dark-grey);
+    text-align: center;
+    background-color: white; /* Optional background for clarity */
+    z-index: 1; /* Ensures text is above any other content */
 }
-
-.grid-item:hover p {
-    color: var(--primary-color);
-}
-
 /* Footer */
 footer {
     background-color: var(--dark-grey);
@@ -173,111 +199,4 @@ footer {
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
-}
-
-/* Grid Item Styling - Enforce consistent sizing */
-.grid-item {
-    background-color: white;
-    border: 1px solid var(--light-grey);
-    border-radius: 8px;
-    overflow: hidden;
-    text-align: center;
-    text-decoration: none;
-    color: var(--dark-grey);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Ensures consistent width */
-    height: 250px; /* Sets a fixed height */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Ensures content is evenly spaced */
-}
-
-.grid-item img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover; /* Prevents image distortion */
-    border-radius: 8px 8px 0 0; /* Matches the container */
-}
-
-.grid-item p {
-    margin: 1rem 0;
-    font-weight: bold;
-    color: var(--dark-grey);
-}
-
-/* Hide elements but maintain layout during search */
-.grid-item.hidden {
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* Grid Container */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Fixed column size */
-    gap: 1.5rem;
-}
-
-/* Grid Item */
-.grid-item {
-    background-color: white;
-    border: 1px solid var(--light-grey);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Ensures items take up full width of the column */
-    height: 250px; /* Fixed height for all items */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Ensures consistent spacing inside */
-    text-align: center;
-    overflow: hidden; /* Prevents content from overflowing */
-    text-decoration: none;
-    color: var(--dark-grey);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Grid Item Image */
-.grid-item img {
-    width: 100%;
-    height: 150px; /* Fixed height for images */
-    object-fit: cover; /* Prevents distortion */
-    border-radius: 8px 8px 0 0; /* Matches container's rounded corners */
-}
-
-/* Grid Item Text */
-.grid-item p {
-    margin: 1rem;
-    font-weight: bold;
-    color: var(--dark-grey);
-    flex-grow: 1; /* Ensures consistent spacing even with varying text lengths */
-    display: flex;
-    align-items: center; /* Vertically centers text */
-    justify-content: center; /* Horizontally centers text */
-}
-
-/* Hidden Class (During Search) */
-.grid-item.hidden {
-    visibility: hidden; /* Hides the element */
-    opacity: 0; /* Makes it invisible */
-    pointer-events: none; /* Disables interactions */
-    position: absolute; /* Prevents it from affecting the layout */
-}
-
-/* Animation classes */
-.grid-item {
-    position: relative; /* Needed for transition animations */
-    transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth animation for position and opacity changes */
-}
-
-/* Fade-out and Fade-in Animations */
-.grid-item.fade-out {
-    opacity: 0;
-    transform: scale(0.8); /* Shrinks the item slightly */
-}
-
-.grid-item.fade-in {
-    opacity: 1;
-    transform: scale(1); /* Restores the item's size */
 }

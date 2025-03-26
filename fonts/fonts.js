@@ -2,7 +2,7 @@
 let targetDiv = document.getElementById("grid");
 
 // Function to create and append an anchor element
-function appendAnchor(href, id, projects, family, serif, imgSrc, name) {
+function appendAnchor(href, id, projects, family, serif, imgSrc1, imgSrc2, name) {
     let anchor = document.createElement("a");
     anchor.href = href;
     anchor.className = "grid-item";
@@ -11,14 +11,21 @@ function appendAnchor(href, id, projects, family, serif, imgSrc, name) {
     anchor.setAttribute("data-family", family);
     anchor.setAttribute("data-serif", serif);
 
-    let img = document.createElement("img");
-    img.src = imgSrc;
-    img.alt = name;
+    let img1 = document.createElement("img");
+    img1.src = imgSrc1;
+    img1.alt = name;
+    img1.classList.add("image1");
+
+    let img2 = document.createElement("img");
+    img2.src = imgSrc2;
+    img2.alt = name;
+    img2.classList.add("image2");
 
     let paragraph = document.createElement("p");
     paragraph.textContent = name;
 
-    anchor.appendChild(img);
+    anchor.appendChild(img1);
+    anchor.appendChild(img2);
     anchor.appendChild(paragraph);
     targetDiv.appendChild(anchor);
 }
@@ -50,7 +57,7 @@ function fetchItemById(id) {
       console.log(`Serif: ${itemSerif}`);
 
       // Now that data is available, call appendAnchor
-      appendAnchor("fonts/" + itemName + ".html", itemId, itemProjects, itemFamily, itemSerif, "fonts/images/" + itemName + ".png", itemName);
+      appendAnchor("fonts/" + itemName + ".html", itemId, itemProjects, itemFamily, itemSerif, "fonts/images/" + itemName + "1.png", "fonts/images/" + itemName + "2.png", itemName);
     })
     .catch(error => {
       console.error('There was a problem with the fetch operation:', error);
@@ -85,3 +92,5 @@ async function loadAllItems() {
 }
 
 loadAllItems(); // Call the function to load all items
+
+
