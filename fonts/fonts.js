@@ -93,4 +93,3 @@ async function loadAllItems() {
 
 loadAllItems(); // Call the function to load all items
 
-
